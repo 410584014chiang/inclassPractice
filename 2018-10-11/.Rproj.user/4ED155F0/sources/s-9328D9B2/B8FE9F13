@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539241106071.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B8FE9F13",
+    "lastKnownWriteTime" : 7308604914264011873,
+    "last_content_update" : 1539241106071,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "9941C844",
+        "caption" : "allBankData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=allBankData&cache_key=9941C844",
+        "displayedObservations" : "1061",
+        "environment" : "",
+        "object" : "allBankData",
+        "preview" : "0",
+        "totalObservations" : "1061",
+        "variables" : "3"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,12 @@
+"0","subsetDataTWbank$西元年月<-seq(as.Date(""2001/01/01""),as.Date(""2018/08/01""),by=""1 month"") "
+"2","Error in `$<-.data.frame`(`*tmp*`, 西元年月, value = c(11323, 11354, 11382,  : 
+  replacement has 212 rows, data has 1066
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

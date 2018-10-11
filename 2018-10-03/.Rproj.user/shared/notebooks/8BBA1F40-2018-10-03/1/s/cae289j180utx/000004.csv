@@ -1,0 +1,13 @@
+"0","str_split_fixed(flimVotingData$請選擇你最喜歡的影片兩部,"","",3)->"
+"0","  bb"
+"2","Error in stri_split_regex(string, pattern, n = n, simplify = simplify,  : 
+  object 'flimVotingData' not found
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

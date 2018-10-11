@@ -1,0 +1,8 @@
+"0","bop_aq %>% ggplot(aes(x=X1,y=`經常帳-商品與服務收支淨額`))"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

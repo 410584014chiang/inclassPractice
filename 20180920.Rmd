@@ -1,0 +1,61 @@
+---
+title: "20180920"
+output: html_notebook
+---
+```{r}
+library(readr)
+InterestRateData <- read_csv("~/Downloads/055a590b486e9cb276858e1c52ac6430_export.csv")
+```
+選擇變數
+
+
+```{r}
+library(dplyr)
+subsetData <- InterestRateData %>%
+  select(銀行,
+           年月,
+           `定存利率-一個月-固定`,
+           `定存利率-二年期-固定`,
+           `定存利率-三年期-固定`)
+```
+
+```{r}
+subsetDataTWbank <- subsetData %>%
+  filter(銀行=="臺灣銀行")
+```
+
+```{r}
+subsetDataTWbank$年月 #檢查'年月'變數有多少可能值
+```
+
+seq(起,迄)
+as.Data(日期字串)
+```{r}
+subsetDataTWbank$西元年月<-seq(as.Date("2001/01/01"),as.Date("2018/08/01"),"months") 
+```
+
+
+```{r}
+subsetDataTWbank$西元年月<-seq(as.Date("2001/01/01"),as.Date("2018/08/01"),by="1 month") 
+```
+
+
+  
+```{r}
+seq(as.Date("2001/01/01"),as.Date("2018/08/01"),by="1 month") 
+```
+
+```{r}
+library(readr)
+subsetDataTWbank <- read_csv("data/subsetDataTWbank.csv")
+```
+
+```{r}
+library(showtext)
+font_files()+
+  theme(text=element_text(size=10,  family="QYuan"))+
+
+
+```
+
+

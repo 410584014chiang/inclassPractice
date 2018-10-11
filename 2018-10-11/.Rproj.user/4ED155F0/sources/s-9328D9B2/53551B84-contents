@@ -1,0 +1,118 @@
+---
+title: "2018-10-11"
+output: html_notebook
+---
+```{r}
+library(readr)
+InterestRateData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/InterestRateData.csv")
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+# 取出變數
+InterestRateData %>% select(
+  銀行,
+  年月,
+  `定存利率-三個月-固定`
+) -> allBankData
+
+```
+
+```{r}
+allBankData %>% 
+  mutate_at(vars(-銀行,-年月),funs(as.numeric(.))) ->
+  allBankData
+
+```
+
+```{r}
+library(stringr)
+library(lubridate)
+allBankData$年月 %>%
+  str_c("1",.,"/01") %>%
+  ymd()+years(911) -> allBankData$年月
+```
+
+```{r}
+allBankData %>% filter(!is.na(年月)) -> allBankData
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+# 產生利差
+allBankData %>% mutate(利差=`定存利率-一年期-固定`-`定存利率-三個月-固定`) -> allBankData
+
+# 產生平均利率及平均利差
+allBankData %>% 
+  select(年月,`定存利率-三個月-固定`,利差) %>%
+  group_by(年月) %>%
+  summarise(
+    平均利率=mean(`定存利率-三個月-固定`,na.rm=T),
+    平均利差=mean(利差,na.rm = T)) -> averageBankData
+```
+
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+allBankData %>% ggplot(aes(x=年月,y=`定存利率-三個月-固定`))
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+theme_set(theme_classic())
+allBankData %>% ggplot(aes(x=年月,y=`定存利率-三個月-固定`)) + geom_line()
+
+```
+
+```{r}
+allBankData %>% ggplot()+
+  geom_line(aes(x=年月,y=`定存利率-三個月-固定`,
+                color=銀行))
+```
+
+```{r}
+allBankData %>% ggplot()+
+  geom_line(aes(x=年月,y=`定存利率-三個月-固定`,
+                color=銀行))+
+  scale_color_brewer(type="qual")
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+allBankData %>% 
+  ggplot()+
+  geom_line(aes(x=年月,y=平均利率))+
+  geom_point(aes(x=年月,y=平均利率,color=平均利差))+
+  scale_color_distiller(type="div")
+```
+
+```{r}
+averageBankData %>% 
+  ggplot()+
+  geom_line(aes(x=年月,y=平均利率))+
+  geom_point(aes(x=年月,y=平均利率,alpha=平均利差),color='red')
+```
+
+```{r}
+averageBankData %>% 
+  ggplot()+
+  geom_line(aes(x=年月,y=平均利率))+
+  geom_point(aes(x=年月,y=平均利率,color=平均利差))+
+  scale_color_distiller(type="div")
+```
+
+
+
+

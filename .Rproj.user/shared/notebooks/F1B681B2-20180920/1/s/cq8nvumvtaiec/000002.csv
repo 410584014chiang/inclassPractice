@@ -1,0 +1,11 @@
+"0","library(showtext)"
+"2","Loading required package: sysfonts
+"
+"2","Loading required package: showtextdb
+"
+"0","font_files()+"
+"0","  theme(text=element_text(size=10,  family=""QYuan""))+"
+"2","Error: Incomplete expression: font_files()+
+  theme(text=element_text(size=10,  family=""QYuan""))+
+
+"

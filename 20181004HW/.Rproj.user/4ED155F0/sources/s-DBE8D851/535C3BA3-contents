@@ -1,0 +1,52 @@
+---
+title: "20181004HW"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+bop_aq <- read_csv("C:/Users/user/Downloads/bop_aq.csv")
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+Data<-bop_aq%>%
+  select(X1,
+         `經常帳-商品與服務收支淨額`)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+bop_aq %>% ggplot(aes(x=X1,y=`經常帳-商品與服務收支淨額`))
+```
+
+```{r}
+bop_aq %>% ggplot(aes(x=X1,y=`經常帳-商品與服務收支淨額`))+
+  geom_point(color='blue')
+```
+
+```{r}
+library(showtext)
+font_files()
+```
+
+```{r}
+font_add("QYuan","cwTeXQYuan-Medium.ttf") # 新增字體
+showtext_auto(enable=TRUE) #啟用字體
+```
+
+```{r}
+bop_aq  %>% ggplot(aes(x=X1,y=`經常帳-商品與服務收支淨額`))+
+  geom_point(color='blue')+
+  theme(text=element_text(size=10,  family="QYuan"))+
+  theme_classic()+
+  labs(x="西元年/季",y="經常帳-商品與服務收支淨額")
+```
+
+

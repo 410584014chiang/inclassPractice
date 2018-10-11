@@ -1,0 +1,13 @@
+"0","library(stringr)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","library(lubridate)"
+"0","allBankData$年月 %>%"
+"0","  str_c(""1"",.,""/01"") %>%"
+"0","  ymd()+years(911) -> allBankData$年月"
+"2"," 5 failed to parse."

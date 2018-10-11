@@ -1,0 +1,87 @@
+---
+title: "practice"
+output: html_notebook
+---
+```{r}
+library(readr)
+bop_aq <- read_csv("C:/Users/user/Downloads/bop_aq.csv")
+```
+
+```{r}
+library(dplyr)
+bop_aq %>%
+  rename(年季=X1) -> bop_aq
+```
+
+```{r}
+bop_aq %>%
+  select(
+    年季,
+    `A.  經常帳`, 
+    `B.  資本帳 1`,
+    `C.  金融帳 1`,
+    `D.  誤差與遺漏淨額`,
+    `E.  準備與相關項目`) -> bop_aq
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+library(lubridate)
+bop_aq$年季 %>% yq() ->
+  bop_aq$年季
+```
+
+```{r}
+bop_aq %>% ggplot(aes(x=年季,y=`A.  經常帳`))
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+theme_set(theme_classic())
+bop_aq %>% ggplot(aes(x=年季,y=`A.  經常帳`)) + geom_line()
+```
+```{r}
+library(tidyr)
+bop_aq %>% gather(項目,值,-年季) -> bop_aq
+```
+
+
+```{r}
+bop_aq %>% filter(項目=="A.  經常帳") -> CAdata
+bop_aq %>% filter(項目=="C.  金融帳 1") -> FAdata
+CAdata %>%  ggplot(aes(x=年季,y=值))+
+  geom_line() -> CAfig
+CAfig
+```
+
+```{r}
+CAfig +
+  geom_line(data=FAdata, linetype="longdash")
+```
+
+```{r}
+bop_aq %>% ggplot(aes(x=年季,y=值))+
+  geom_line(aes(color=項目),linetype="longdash")->f1
+
+f1+
+  scale_color_manual(
+    values=c("red","orange","purple","tomato","blue")
+  )
+```
+
+```{r}
+bop_aq %>% ggplot(aes(x=年季,y=值))+
+  geom_point(aes(color=項目),linetype="longdash")->f1
+
+f1+
+  scale_color_manual(
+    values=c("red","orange","purple","tomato","blue")
+  )
+```
+

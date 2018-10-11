@@ -1,0 +1,15 @@
+"0","library(readr)"
+"0","bop_aq <- read_csv(""C:/Users/user/Downloads/bop_aq.csv"")"
+"2","Missing column names filled in: 'X1' [1]"
+"2","Parsed with column specification:
+cols(
+  .default = col_integer(),
+  X1 = col_character(),
+  `金融帳-其他投資：資產-其他股本` = col_character(),
+  `金融帳-其他投資：負債-其他股本` = col_character(),
+  `準備與相關項目-基金信用的使用及自基金的借款` = col_character(),
+  `準備與相關項目-特殊融資` = col_character()
+)
+"
+"2","See spec(...) for full column specifications.
+"

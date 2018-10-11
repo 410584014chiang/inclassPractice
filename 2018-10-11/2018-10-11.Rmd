@@ -1,0 +1,117 @@
+---
+title: "2018-10-11"
+output: html_notebook
+---
+```{r}
+library(readr)
+InterestRateData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/InterestRateData.csv")
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+# <e5><8f>–å‡ºè®Šæ•¸
+InterestRateData %>% select(
+  <e9><8a>€è¡<8c>,
+  å¹´æ<9c><88>,
+  `å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`
+) -> allBankData
+
+```
+
+```{r}
+allBankData %>% 
+  mutate_at(vars(-<e9><8a>€è¡<8c>,-å¹´æ<9c><88>),funs(as.numeric(.))) ->
+  allBankData
+
+```
+
+```{r}
+library(stringr)
+library(lubridate)
+allBankData$å¹´æ<9c><88> %>%
+  str_c("1",.,"/01") %>%
+  ymd()+years(911) -> allBankData$å¹´æ<9c><88>
+```
+
+```{r}
+allBankData %>% filter(!is.na(å¹´æ<9c><88>)) -> allBankData
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+# <e7>”¢<e7><94>Ÿåˆ©å·<ae>
+allBankData %>% mutate(<e5>ˆ©å·<ae>=`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸€å¹´æ<9c><9f>-<e5>›ºå®š`-`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`) -> allBankData
+
+# <e7>”¢<e7><94>Ÿå¹³<e5><9d>‡åˆ©<e7><8e>‡å<8f>Šå¹³<e5><9d>‡åˆ©å·<ae>
+allBankData %>% 
+  select(å¹´æ<9c><88>,`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`,<e5>ˆ©å·<ae>) %>%
+  group_by(å¹´æ<9c><88>) %>%
+  summarise(
+    å¹³å<9d>‡åˆ©<e7><8e><87>=mean(`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`,na.rm=T),
+    å¹³å<9d>‡åˆ©å·<ae>=mean(<e5>ˆ©å·<ae>,na.rm = T)) -> averageBankData
+```
+
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+allBankData %>% ggplot(aes(x=å¹´æ<9c><88>,y=`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`))
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+theme_set(theme_classic())
+allBankData %>% ggplot(aes(x=å¹´æ<9c><88>,y=`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`)) + geom_line()
+
+```
+
+```{r}
+allBankData %>% ggplot()+
+  geom_line(aes(x=å¹´æ<9c><88>,y=`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`,
+                color=<e9><8a>€è¡<8c>))
+```
+
+```{r}
+allBankData %>% ggplot()+
+  geom_line(aes(x=å¹´æ<9c><88>,y=`å®šå<ad>˜åˆ©<e7><8e><87>-ä¸‰å€‹æ<9c><88>-<e5>›ºå®š`,
+                color=<e9><8a>€è¡<8c>))+
+  scale_color_brewer(type="qual")
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+allBankData %>% 
+  ggplot()+
+  geom_line(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>))+
+  geom_point(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>,color=å¹³å<9d>‡åˆ©å·<ae>))+
+  scale_color_distiller(type="div")
+```
+
+```{r}
+averageBankData %>% 
+  ggplot()+
+  geom_line(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>))+
+  geom_point(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>,alpha=å¹³å<9d>‡åˆ©å·<ae>),color='red')
+```
+
+```{r}
+averageBankData %>% 
+  ggplot()+
+  geom_line(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>))+
+  geom_point(aes(x=å¹´æ<9c><88>,y=å¹³å<9d>‡åˆ©<e7><8e><87>,color=å¹³å<9d>‡åˆ©å·<ae>))+
+  scale_color_distiller(type="div")
+```
+
+
+

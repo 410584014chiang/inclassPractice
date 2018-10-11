@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538028609612.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DCA9D2DF",
+    "lastKnownWriteTime" : 9007667412533362,
+    "last_content_update" : 1538028609612,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "8B04948D",
+        "caption" : "subsetDataTWbank",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=subsetDataTWbank&cache_key=8B04948D",
+        "displayedObservations" : "1066",
+        "environment" : "",
+        "object" : "subsetDataTWbank",
+        "preview" : "0",
+        "totalObservations" : "1066",
+        "variables" : "32"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

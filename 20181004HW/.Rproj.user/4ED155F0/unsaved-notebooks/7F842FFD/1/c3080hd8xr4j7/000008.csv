@@ -1,0 +1,5 @@
+"0","library(dplyr)"
+"0","bop_aq %>%"
+"0","  rename(年季=`0`) -> bop_aq"
+"2","Error in .f(.x[[i]], ...) : object '0' not found
+"

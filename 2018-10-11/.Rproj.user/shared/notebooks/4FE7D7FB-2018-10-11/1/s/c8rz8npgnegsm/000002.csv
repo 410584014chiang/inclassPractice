@@ -1,0 +1,15 @@
+"0","averageBankData %>% "
+"0","  ggplot()+"
+"0","  geom_line(aes(x=年月,y=平均利率))+"
+"0","  geom_point(aes(x=年月,y=平均利率,color=平均利差))+"
+"0","  scale_color_distiller(type=""div"")"
+"2","Error in eval(lhs, parent, parent) : object 'averageBankData' not found
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

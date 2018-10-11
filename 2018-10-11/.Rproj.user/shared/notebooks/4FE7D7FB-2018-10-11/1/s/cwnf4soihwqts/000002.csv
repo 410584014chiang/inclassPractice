@@ -1,0 +1,11 @@
+"0","allBankData %>% "
+"0","  mutate_at(vars(-銀行,-年月),funs(as.numeric(.))) ->"
+"0","  allBankData"
+"2","NAs introduced by coercion"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
