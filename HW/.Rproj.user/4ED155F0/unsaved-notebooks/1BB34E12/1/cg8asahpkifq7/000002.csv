@@ -1,0 +1,13 @@
+"0","# 產生利差"
+"0","allBankData %>% mutate(利差=`定存利率-一年期-固定`-`定存利率-三個月-固定`) -> allBankData"
+"2","Error in mutate_impl(.data, dots) : 
+  Evaluation error: object '<U+00A9>w<U+00A6>s<U+00A7>Q<U+00B2>v-<U+00A4>@<U+00A6>~<U+00B4><c1>-<U+00A9>T<U+00A9>w' not found.
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

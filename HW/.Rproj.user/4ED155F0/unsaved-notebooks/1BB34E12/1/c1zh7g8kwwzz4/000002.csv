@@ -1,0 +1,11 @@
+"0","library(readr)"
+"0","InterestRateData <- read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/InterestRateData.csv"")"
+"2","`curl` package not installed, falling back to using `url()`
+"
+"2","Parsed with column specification:
+cols(
+  .default = col_character()
+)
+"
+"2","See spec(...) for full column specifications.
+"
