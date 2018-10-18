@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539781033743.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E399B65C",
+    "lastKnownWriteTime" : 3346849036566623844,
+    "last_content_update" : 1539781033743,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "66C71983",
+        "caption" : "InterestRateData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=InterestRateData&cache_key=66C71983",
+        "displayedObservations" : 1066,
+        "environment" : "",
+        "object" : "InterestRateData",
+        "preview" : 0,
+        "totalObservations" : 1066,
+        "variables" : 32
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
