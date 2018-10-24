@@ -1,0 +1,13 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(ggplot2)
+library(dplyr)
+library(showtext)
+font_add("QYuan","cwTeXQYuan-Medium.ttf") # 新增字體
+showtext_auto(enable=TRUE)
+theme_set(theme_classic())
+```
+

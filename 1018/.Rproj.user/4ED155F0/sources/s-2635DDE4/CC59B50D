@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539842551187.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CC59B50D",
+    "lastKnownWriteTime" : 8093582260679290929,
+    "last_content_update" : 1539842551187,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "c1e5b7a9228e41008f2a36726aa2ad42",
+        "name" : "basePlot",
+        "title" : "basePlot"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}
