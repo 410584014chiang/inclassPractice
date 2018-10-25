@@ -1,0 +1,3 @@
+"0","p1+"
+"0","  theme(panel.grid.major.y=element_line(color = ""#adadad"",size = 0.1))->p2"
+"0","p2"

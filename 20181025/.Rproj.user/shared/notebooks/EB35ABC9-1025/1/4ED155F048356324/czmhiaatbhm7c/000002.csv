@@ -1,0 +1,4 @@
+"0","p2 + theme("
+"0","axis.line.y = element_blank(), #or-> element_line(size = 0)"
+"0","axis.ticks.y = element_blank()"
+"0",") -> p3"

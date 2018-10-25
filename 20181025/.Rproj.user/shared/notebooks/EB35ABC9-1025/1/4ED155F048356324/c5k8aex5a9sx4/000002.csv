@@ -1,0 +1,6 @@
+"0","mtcars2 <- mtcars[1:15, ]"
+"0","mtcars2$name <- row.names(mtcars2)"
+"0","ggplot(mtcars2, aes(x = name, y = mpg, fill = name)) + "
+"0","  geom_bar(stat = 'identity', position = ""identity"") +"
+"0","  guides(fill = FALSE) + "
+"0","  theme(axis.text.x = element_text(angle = 90,hjust=0,vjust=0.5)) #angle = 90, vjust=0.5, hjust=0"

@@ -1,0 +1,52 @@
+"0","library(lubridate)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","library(dplyr)"
+"0","library(tidyr)"
+"0","library(readr)"
+"0","# å¼•å…¥è³‡æ–™"
+"0","exData <- read_csv(""https://quality.data.gov.tw/dq_download_csv.php?nid=6563&md5_url=9f65bdb6752389dc713acc27e93c1c38"")"
+"2","Parsed with column specification:
+cols(
+  ´Á¶¡ = col_character(),
+  `·s¥x¹ôNTD/USD` = col_double(),
+  `¤é¶êJPY/USD` = col_double(),
+  `­^ÂéUSD/GBP` = col_double(),
+  `´ä¹ôHKD/USD` = col_double(),
+  `Áú¤¸KRW/USD` = col_double(),
+  `¥[®³¤j¹ôCAD/USD` = col_double(),
+  `·s¥[©Y¤¸SGD/USD` = col_double(),
+  `¤H¥Á¹ôCNY/USD` = col_double(),
+  `¿D¹ôUSD/AUD` = col_double(),
+  `¦L¥§¬ŞIDR/USD` = col_character(),
+  `®õ»ËTHB/USD` = col_double(),
+  `°¨¨Ó¦è¨È¹ôMYR/USD` = col_double(),
+  `µá«ß»«©Ü¯ÁPHP/USD` = col_double(),
+  `¼Ú¤¸USD/EUR` = col_character(),
+  `°¨§JDEM/USD` = col_character(),
+  `ªk°êªk­¦FRF/USD` = col_character(),
+  `²üÄõ¹ôNLG/USD` = col_character(),
+  `¶V«n¬ŞVND/USD` = col_character()
+)
+"
+"0","# è™•ç†æ™‚é–“"
+"0","exData$æœŸé–“ %>% paste0(""-01"") %>% ymd() -> exData$æœŸé–“"
+"0","# è™•ç†è³‡æ–™çµæ§‹"
+"0","exData %>% select(æœŸé–“, ""æ­å…ƒUSD/EUR"",""éŸ“å…ƒKRW/USD"",""äººæ°‘å¹£CNY/USD"", ""æ—¥åœ“JPY/USD"", ""æ–°å°å¹£NTD/USD"") -> exData2"
+"0","exData2 %>% gather(å¹£åˆ¥, åŒ¯ç‡, -æœŸé–“) -> exData2"
+"0","# è™•ç†è®Šæ•¸class"
+"0","exData2$å¹£åˆ¥ %>% as.factor() -> exData2$å¹£åˆ¥"
+"0","exData2$åŒ¯ç‡ %>% as.numeric() -> exData2$åŒ¯ç‡"
+"2","NAs introduced by coercion"
+"0","# è™•ç†æ­å…ƒ"
+"0","exData2$åŒ¯ç‡[exData2$å¹£åˆ¥==""æ­å…ƒUSD/EUR""]<-1/exData2$åŒ¯ç‡[exData2$å¹£åˆ¥==""æ­å…ƒUSD/EUR""]"
+"0","# ä»¥2017å¹´1æœˆç‚ºåŸºæœŸ"
+"0","exData2 %>% group_by(å¹£åˆ¥) %>%"
+"0","  mutate(åŒ¯ç‡=åŒ¯ç‡/åŒ¯ç‡[æœŸé–“==ymd(""2017-01-01"")]*100) %>% "
+"0","  ungroup() ->"
+"0","  exData3"
