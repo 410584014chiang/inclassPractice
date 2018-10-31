@@ -1,0 +1,40 @@
+"0","library(readr)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","student <- read_csv(""https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv"")"
+"2","Parsed with column specification:
+cols(
+  ¤J¾Ç¦~ = col_character(),
+  ¥X¥Í¦a = col_character(),
+  ©Ê§O = col_character(),
+  ¨­°ª = col_double()
+)
+"
+"0","library(dplyr)"
+"2","
+Attaching package: ¡¥dplyr¡¦
+
+"
+"2","The following objects are masked from ¡¥package:lubridate¡¦:
+
+    intersect, setdiff, union
+
+"
+"2","The following objects are masked from ¡¥package:stats¡¦:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ¡¥package:base¡¦:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(magrittr)"
+"0","student %<>% mutate("
+"0","  èº«é«˜ç´šè·=cut(èº«é«˜,c(0,150,155,160,165,170,175,180,185,200)))"
