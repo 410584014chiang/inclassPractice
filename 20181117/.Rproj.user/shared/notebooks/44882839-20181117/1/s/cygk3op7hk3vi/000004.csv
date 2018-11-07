@@ -1,0 +1,6 @@
+"0","college1stYearData %>%"
+"0","  mutate_all("
+"0","    funs("
+"0","      parse_number(.,locale=cl) )"
+"0","  ) ->college1stYearDataNumeric"
+"0","head(college1stYearDataNumeric)"

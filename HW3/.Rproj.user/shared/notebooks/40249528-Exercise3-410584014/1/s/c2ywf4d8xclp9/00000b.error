@@ -1,0 +1,1 @@
+{"frames":[{"character_number":0,"end_character_number":0,"end_line_number":0,"file":"","func":"difftime(deadline - hwData$Timestap)","line_number":0},{"character_number":0,"end_character_number":0,"end_line_number":0,"file":"","func":"as.POSIXct(time2)","line_number":0}],"message":"Error in as.POSIXct(time2) : argument \"time2\" is missing, with no default\n"}

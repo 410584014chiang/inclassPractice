@@ -1,0 +1,5 @@
+"0","library(lubridate)"
+"0","difftime(`deadline`-hwData$Timestap)->hwData$early"
+"2","Unknown or uninitialised column: 'Timestap'."
+"2","Error in as.POSIXct(time2) : argument ""time2"" is missing, with no default
+"
