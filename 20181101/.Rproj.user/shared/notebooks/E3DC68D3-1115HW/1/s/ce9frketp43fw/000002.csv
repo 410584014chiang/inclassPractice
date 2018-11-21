@@ -1,0 +1,15 @@
+"0","startSalarySecCat$`經常性薪資-薪資` %>% "
+"0","  sort(., decreasing=T,"
+"0","       index.return=T) -> sortOut"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","xlim <- startSalarySecCat$大職業別[sortOut$ix]"
+"0","p3+scale_x_discrete("
+"0","  limits=xlim"
+"0",")->p4"
+"0","p4"

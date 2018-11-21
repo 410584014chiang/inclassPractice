@@ -1,0 +1,30 @@
+"0","library(stringr)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","startSalaryTopCat<- read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/startSalaryTopCat.csv"")"
+"2","Parsed with column specification:
+cols(
+  ¦~«× = col_integer(),
+  ¤jÂ¾·~§O = col_character(),
+  `¸g±`©ÊÁ~¸ê-Á~¸ê` = col_integer(),
+  `¸g±`©ÊÁ~¸ê-¤k/¨k` = col_double(),
+  `°ê¤¤¤Î¥H¤U-Á~¸ê` = col_integer(),
+  `°ê¤¤¤Î¥H¤U-¤k/¨k` = col_double(),
+  `°ª¤¤©Î°ªÂ¾-Á~¸ê` = col_integer(),
+  `°ª¤¤©Î°ªÂ¾-¤k/¨k` = col_double(),
+  `±M¬ì-Á~¸ê` = col_integer(),
+  `±M¬ì-¤k/¨k` = col_double(),
+  `¤j¾Ç-Á~¸ê` = col_integer(),
+  `¤j¾Ç-¤k/¨k` = col_double(),
+  `¬ã¨s©Ò¤Î¥H¤W-Á~¸ê` = col_integer(),
+  `¬ã¨s©Ò¤Î¥H¤W-¤k/¨k` = col_double()
+)
+"
+"0","startSalaryTopCat %>% filter("
+"0","  str_detect(å¤§è·æ¥­åˆ¥,""éƒ¨é–€"")"
+"0",") -> dataTwoSectors"

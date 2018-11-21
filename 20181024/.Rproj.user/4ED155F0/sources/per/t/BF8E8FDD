@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1540369265201.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1265838571",
+    "id" : "BF8E8FDD",
+    "lastKnownWriteTime" : 1542033683,
+    "last_content_update" : 1542033687216,
+    "path" : "~/inclassPractice/資訊1031.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "89,0",
+        "scrollLine" : "2",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

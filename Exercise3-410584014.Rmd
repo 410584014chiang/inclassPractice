@@ -24,12 +24,9 @@ classData<-gs_read(gsLMSHabit,ws="公告與練習") #access the 1st worksheet
 變數「公-10-06」為1代表有看公告，請將classData$`公-10-06`改成factor類型且有看公告的人，他的觀察值為"有看公告"；沒看公告的觀察值為"沒看公告"。
 
 ```{r ans11}
-classData$`公-10-06`=1
-library(stringr)
-library(dplyr)
-as.factor(classData$`公-10-06`)
-classData$`公-10-06`=1->"有看公告"
-classData$`公-10-06`[-c(1)]->"沒看公告"
+as.factor(classData$`公-10-06`)-> classData$`公-10-06`
+
+levels(classData$`公-10-06`) <- c("沒看公告","有看公告")
 ```
 
 ### 1.2 
@@ -49,7 +46,7 @@ classData <- data.frame(`公-10-06`=c(1))
 在「有看公告」的人裡，有多少比例在2018-10-17有commit-push記錄（即值為1）。
 
 ```{r ans13}
-(classData$`公-10-06`==1|classData$`練2018-10-17-1`==1 )
+
 ```
 
 ### 1.4
@@ -57,7 +54,8 @@ classData <- data.frame(`公-10-06`=c(1))
 在「沒看公告」的人裡，有多少比例在2018-10-17有commit-push記錄（即值為1）。
 
 ```{r ans14}
-(classData$`公-10-06`==0|classData$`練2018-10-17-1`==1 )
+
+
 ```
 
 
@@ -94,9 +92,9 @@ with_tz(gsLMSHabit$Timestamp,tzone="Asia/Taipei") ->gsLMSHabit$Timestamp
 
 
 ```{r ans22}
-library(lubridate)
-hwData$deadline <-ymd_hms("2018-10-24 00:00:01")
-hwData$deadline <-as.POSIXct(hwData$deadline)->deadline
+
+deadline <- ymd_hms("2018-10-24 00:00:00", tz="Asia/Taipei")
+
 ```
 
 
@@ -109,7 +107,8 @@ hwData$deadline <-as.POSIXct(hwData$deadline)->deadline
 
 ```{r ans23}
 library(lubridate)
-difftime(`deadline`-hwData$Timestap)->hwData$early
+
+
 ```
 
 
@@ -118,10 +117,8 @@ difftime(`deadline`-hwData$Timestap)->hwData$early
 
 利用`round()`將early變數的天數四捨五入到整數。
 
-
-
 ```{r ans24}
-`round(gsLMSHabit$early)->hwData$early
+round(hwData$early)->hwData$early
 ```
 
 

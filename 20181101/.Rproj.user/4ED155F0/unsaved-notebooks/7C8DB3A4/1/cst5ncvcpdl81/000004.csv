@@ -1,5 +1,0 @@
-"0","library(ggplot2)"
-"0","library(dplyr)"
-"0","library(showtext)"
-"0","showtext_auto(enable=TRUE)"
-"0","theme_set(theme_classic())"

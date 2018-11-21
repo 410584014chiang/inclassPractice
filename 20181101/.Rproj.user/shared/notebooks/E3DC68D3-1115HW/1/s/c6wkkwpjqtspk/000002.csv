@@ -1,0 +1,16 @@
+"0","startSalarySecCat %>% ggplot(aes(x=大職業別))+"
+"0","  geom_col(aes(y=`經常性薪資-薪資`,fill=部門))+"
+"0","  theme("
+"0","    axis.text.x="
+"0","      element_text("
+"0","        angle=90,"
+"0","        hjust=1,"
+"0","        vjust=0.5)) -> p3"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","p3"

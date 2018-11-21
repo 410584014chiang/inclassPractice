@@ -1,0 +1,129 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(stringr)
+
+startSalaryTopCat<- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/startSalaryTopCat.csv")
+
+startSalaryTopCat %>% filter(
+
+  str_detect(大職業別,"部門")
+
+) -> dataTwoSectors
+```
+```{r}
+library(ggplot2)
+
+library(dplyr)
+
+library(lubridate)
+
+library(readr)
+
+theme_set(theme_classic())
+```
+
+```{r}
+dataTwoSectors %>% ggplot(aes(x=大職業別))+
+  geom_col(aes(y=`經常性薪資-薪資`))->p1
+p1
+```
+```{r}
+p1+
+  labs(x=NULL,y=NULL) -> p1
+p1
+```
+
+```{r}
+startSalaryTopCat$部門<-"服務業部門"
+startSalaryTopCat$部門[2:7]<-"工業部門"
+startSalarySecCat <- startSalaryTopCat[-c(1,2,8),]
+```
+
+```{r}
+startSalarySecCat %>% ggplot(aes(x=大職業別))+
+  geom_col(aes(y=`經常性薪資-薪資`,fill=部門))+
+  theme(
+    axis.text.x=
+      element_text(
+        angle=90,
+        hjust=1,
+        vjust=0.5)) -> p3
+p3
+```
+```{r}
+startSalarySecCat$`經常性薪資-薪資` %>% 
+  sort(., decreasing=T,
+       index.return=T) -> sortOut
+xlim <- startSalarySecCat$大職業別[sortOut$ix]
+
+p3+scale_x_discrete(
+  limits=xlim
+)->p4
+p4
+```
+```{r}
+p4+
+  coord_flip()
+```
+```{r}
+p4+
+  scale_y_continuous(position = "right")->p5
+p5
+```
+
+```{r}
+p5+scale_x_discrete(
+  limits=rev(xlim) # xlim為先前定義的順序
+)+coord_flip()
+```
+```{r}
+p4+scale_y_continuous(
+  expand=expand_scale(mult = c(0,0.1))
+)
+```
+```{r}
+startSalarySecCat %>% 
+  ggplot(aes(x=大職業別))+
+  theme(
+    axis.text.x=
+      element_text(
+        angle=90,
+        hjust=1,
+        vjust=0.5))-> p5base
+```
+
+
+```{r}
+p5base  + geom_col( #基本長條圖含寬度設定
+    aes(y=`經常性薪資-薪資`,fill=部門),
+    width=0.8
+    )+
+  scale_y_continuous( #去除長條底部留白，並將軸線置右
+    expand=expand_scale(mult = c(0,0.10)),
+    position="right" 
+    )+
+  scale_x_discrete(limit=rev(xlim))+ #x分類排序
+  theme(axis.text=element_text(size=7))+ #縮小軸線標示文字字體
+  coord_flip()+ #翻轉兩軸
+  labs(x=NULL,y=NULL,fill=NULL)+ #去除mapping標題
+  theme(axis.text.x = #數字調整水平置中 #coord_flip之後的軸用**視覺上的軸**來定義x/y
+          element_text(
+            angle=0,
+            hjust=0.5))-> p9
+p9
+```
+```{r}
+p9 + theme(panel.grid.major.x=element_line(colour = "gray")) 
+  +
+-> p10
+
+p10
+```
+
+```{r}
+ggsave(filename="Interest Rate.png",p10)
+```
+

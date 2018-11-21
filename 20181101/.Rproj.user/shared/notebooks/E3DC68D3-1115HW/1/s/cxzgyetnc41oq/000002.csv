@@ -1,0 +1,8 @@
+"0","startSalarySecCat %>% "
+"0","  ggplot(aes(x=大職業別))+"
+"0","  theme("
+"0","    axis.text.x="
+"0","      element_text("
+"0","        angle=90,"
+"0","        hjust=1,"
+"0","        vjust=0.5))-> p5base"

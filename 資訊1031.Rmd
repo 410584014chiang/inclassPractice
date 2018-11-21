@@ -190,7 +190,6 @@ levels(student$身高級距)
 ```
 
 ```{r}
-```{r}
 
 library(googlesheets)
 

@@ -1,0 +1,10 @@
+"0","dataTwoSectors %>% ggplot(aes(x=大職業別))+"
+"0","  geom_col(aes(y=`經常性薪資-薪資`))->p1"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","p1"
