@@ -1,0 +1,22 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+startSalaryTopCat<- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/startSalaryTopCat.csv")
+
+startSalaryTopCat %>% filter(
+  str_detect(大職業別,"部門")
+) -> dataTwoSectors
+```
+
+```{r}
+dataTwoSectors %>% ggplot(aes(x=大職業別))+
+  geom_col(aes(y=`經常性薪資-薪資`))->p1
+p1
+```
+```{r}
+library(scales)
+p1+scalecoun
+```
+
