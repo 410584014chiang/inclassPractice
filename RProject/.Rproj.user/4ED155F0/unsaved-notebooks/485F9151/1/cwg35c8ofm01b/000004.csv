@@ -1,0 +1,4 @@
+"0","libraryData$學院 %>% as.factor %>% levels -> college"
+"2","Error in libraryData$學院 %>% as.factor %>% levels : 
+  could not find function ""%>%""
+"

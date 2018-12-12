@@ -1,0 +1,16 @@
+"0","library(showtext)"
+"2","Loading required package: sysfonts
+"
+"2","Loading required package: showtextdb
+"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","font_add(""QYuan"",""cwTeXQYuan-Medium.ttf"") # 新增字體"
+"2","Error in check_font_path(regular, ""regular"") : 
+  font file not found for 'regular' type
+"

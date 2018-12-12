@@ -1,0 +1,11 @@
+"0","libraryData$學號 %>% as.factor %>% levels -> studentstudentBorrow <- vector(""numeric"", length(student))for(i in c(1:length(student))){student_i <- student[i]numericalIndex <- which(libraryData$學號 == student_i)studentSubsample_i <- libraryData[numericalIndex,]studentBorrow_i <- nrow(studentSubsample_i)studentBorrow[[i]] <- studentBorrow_i}"
+"2","Error: unexpected 'for' in ""libraryData$學號 %>% as.factor %>% levels -> studentstudentBorrow <- vector(""numeric"", length(student))for""
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"

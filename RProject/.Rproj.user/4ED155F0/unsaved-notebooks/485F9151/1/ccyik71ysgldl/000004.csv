@@ -1,0 +1,14 @@
+"0","libraryData$書籍館藏地 %>%"
+"0","as.factor %>%"
+"0","levels -> storageLocations"
+"2","Error in libraryData$書籍館藏地 %>% as.factor %>% levels : 
+  could not find function ""%>%""
+"
+"2","In addition: "
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
