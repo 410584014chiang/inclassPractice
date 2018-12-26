@@ -1,0 +1,6 @@
+"0","file.create("".Rprofile"")"
+"1","[1]"
+"1"," TRUE"
+"1","
+"
+"0","file.edit("".Rprofile"") "

@@ -1,0 +1,31 @@
+"0","libraryData <- read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/libraryData.csv"")"
+"2","Parsed with column specification:
+cols(
+  ¾Ç¸¹ = col_character(),
+  ®ÑÄyÃþ§O = col_character(),
+  ®ÑÄy¦WºÙ = col_character(),
+  ÅªªÌ­É¾\¥U¼Æ = col_integer(),
+  ®ÑÄy¥Xª©¤é´Á = col_integer(),
+  ®ÑÄy¥Xª©ªÌ = col_character(),
+  ®ÑÄyÀ]ÂÃ¦a = col_character(),
+  ®ÑÄy¤W¬[¦~¤ë = col_date(format = """"),
+  `®ÑÄy¼ÐÃD(subject)` = col_character(),
+  ÅªªÌ¦~¯Å = col_integer(),
+  ¾Ç°| = col_character(),
+  ­É¾\®É¶¡ = col_datetime(format = """")
+)
+"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","libraryData %>%"
+"0","  mutate("
+"0","    æœˆ=month(å€Ÿé–±æ™‚é–“)"
+"0","  ) %>% "
+"0","  select("
+"0","    æœˆ,è®€è€…å¹´ç´š"
+"0","  ) -> monthGrades"

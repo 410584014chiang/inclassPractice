@@ -1,0 +1,213 @@
+---
+title: "Exercise 6"
+date: "12/15/2018"
+params:
+  id: "410584014"
+  name: "江芊柔"
+  repoURL: "這個作業的GitHub repo網址（選填）"
+---
+
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+
+```{r}
+
+library(readr); library(dplyr); library(stringr); library(lubridate)
+
+```
+
+
+
+```{r}
+
+install.packages("plotly")
+
+```
+
+
+
+```{r}
+
+plasticContainer <- list(
+
+  greenBox=c("paper","scissor"),     # location 1
+
+  redBox=c(1L,3L,2.5),               # location 2
+
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+
+)
+
+```
+
+
+
+```{r}
+
+plasticContainer["greenBox"] # or plasticContainer[c(1,2)]
+
+```
+
+
+
+```{r}
+
+plasticContainer["greenBox"][1]
+
+```
+
+
+
+```{r}
+
+plasticContainer["greenBox"]$greenBox[1]
+
+```
+
+
+
+```{r}
+
+plasticContainer["greenBox"][["greenBox"]][1]
+
+
+
+```
+
+
+
+
+
+
+
+
+
+```{r}
+
+plasticContainer[["greenBox"]] # or plasticContainer[[1]]
+
+```
+
+
+
+```{r}
+
+plasticContainer[["greenBox"]][1]
+
+```
+
+
+
+
+
+```{r}
+
+plasticContainer$greenBox
+
+```
+
+
+
+```{r}
+
+plasticContainer$greenBox[1]
+
+```
+
+
+
+## plotly example
+
+
+
+```{r}
+
+download.file("https://github.com/tpemartin/github-data/blob/master/plotly_4070_neda.Rda?raw=true",destfile = "plotly_4070_neda.Rda")
+
+
+```
+```{r}
+library(readr)
+transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcript100_102.csv",
+                  col_types = cols(
+                    學期成績="n"
+                  ))
+
+totalCredits<-function(x){
+  transcriptData[transcriptData$學號==x,]->subsample 
+  subsample %>%
+    mutate(
+      及格=(學期成績>=60)
+    ) %>%
+    summarise(
+      學號=學號[1],
+      總修習學分數=sum(學分數),
+      總實得學分數=sum(學分數[及格])
+    )  
+}
+```
+```{r}
+transcriptData %>%
+  filter(學屆==100,str_sub(學號,5,6)=="P1") -> subsample
+subsample$學號 %>% unique -> 符合條件學號
+```
+
+```{r}
+creditResults<-vector("list",length(符合條件學號))
+i<-1
+
+for(i in seq_along(符合條件學號)){
+  creditResults[[i]] <- totalCredits(符合條件學號[i])
+}
+
+totalCredits(符合條件學號[i])
+```
+
+```{r}
+library(readr)
+library(tidyr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/libraryData2.csv")
+libraryData %>%
+  group_by(學院) %>%
+  nest(.key="各院借閱資料") ->
+  libraryDataNested
+```
+
+```{r}
+libraryData %>%
+  group_by(學號,學年) %>%
+  summarise(
+    學年總借閱冊數=n()
+  ) -> libraryData2
+```
+```{r}
+# 不保留 題（1）
+libraryData %>%
+  group_by(學號,讀者年級) %>%
+  summarise(
+    年級總借閱冊數=n()
+  ) -> libraryData3
+
+# 保留題（1）
+libraryData %>%
+  group_by(學號,學年) %>%
+  mutate(
+    學年總借閱冊數=n()
+  ) %>%
+  group_by(學號,讀者年級) %>%
+  summarise(
+    年級總借閱冊數=n(),
+    學年總借閱冊數=學年總借閱冊數[1],
+    學系=學系[1],
+    學院=學院[1],
+    學年=學年[1]
+  ) -> libraryData3
+```
+

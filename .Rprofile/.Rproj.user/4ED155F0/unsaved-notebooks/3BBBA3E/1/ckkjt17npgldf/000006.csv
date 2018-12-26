@@ -1,0 +1,8 @@
+"0","api_create(gp1,filename=""圖書借閱月份"",fileopt=""new"")"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
